@@ -1,38 +1,25 @@
-// Image switcher code
+// Code to show image after pressing button
 
 let myImage = document.querySelector('img');
-
-myImage.onclick = function() {
-  let mySrc = myImage.getAttribute('src');
-  if(mySrc === 'images/dina.png') {
-    myImage.setAttribute ('src','images/mars.png');
-  } else {
-    myImage.setAttribute ('src','images/dina.png');
-  }
-}
-
-// Personalized welcome message code
-
 let myButton = document.querySelector('button');
-let myHeading = document.querySelector('h1');
 
-function setUserName() {
-  let myName = prompt('Please enter your name.');
-  if(!myName) {
-    setUserName();
-  } else {
-    localStorage.setItem('name', myName);
-    myHeading.innerHTML = 'Mozilla is cool, ' + myName;
+function displayImage() {
+    var image = document.getElementById('marsImage');
+    image.style.display = 'block';
   }
-}
-
-if(!localStorage.getItem('name')) {
-  setUserName();
-} else {
-  let storedName = localStorage.getItem('name');
-  myHeading.innerHTML = 'Mozilla is cool, ' + storedName;
-}
 
 myButton.onclick = function() {
-  setUserName();
-}
+    displayImage();
+  }
+
+
+// Click the image to display a message
+let message = 'Hi! You should consider buying a tiny horse today :)'
+function showMessage(message) {
+    alert(message); 
+  }
+
+myImage.onclick = () => {
+const mySrc = myImage.getAttribute("src");
+showMessage(message)
+};
